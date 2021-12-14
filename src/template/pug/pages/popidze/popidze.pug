@@ -1,0 +1,27 @@
+extends ../../templates/default
+block vars
+	-
+		title = "Popidze"
+		breadcrumbs = [
+			['Главная', 'index.html'],
+			[title]
+		]
+block content
+	.case
+		.btn(data-popidze="#popup") Вызвать попап по атрибуту "data-popidze"
+		a.btn(href="#popup" data-popidze="") Вызвать попап по атрибуту "href"
+		.btn.popidze-show(href="#popup") Вызвать попап по классу "popidze-show"
+		.btn.popidze-show(data-popidze="uploads/google-office.jpg") Вызвать изображение по классу "popidze-show"
+
+		.btn.popidze-show(data-popidze="uploads/google-office.jpg" data-group="group") Вызвать изображение по классу "popidze-show" с группой
+		.btn.popidze-show(data-popidze="uploads/google-office.jpg" data-group="group") Вызвать изображение по классу "popidze-show" с группой
+		.popup#popup
+			.popup__close
+			.popup__text
+				p Hello world
+
+
+		+style('popidze', 'components')
+		+script('popidze', 'components')
+		script.
+			new Popidze();
